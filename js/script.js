@@ -54,6 +54,18 @@ const { createApp } = Vue
             } else {
                 this.mainIndex--;
             }
+        },
+
+        activeImg(index) {
+            this.mainIndex = index;
+        },
+
+        stopSlide(hover) {
+            if (hover) {
+                clearInterval(this.timer);
+            } else {
+                this.timer = setInterval()
+            }
         }
         
     },

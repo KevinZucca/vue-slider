@@ -30,7 +30,7 @@
                     <div @click="nextImg()" class="next"></div>
 
 
-                    <div @click="activeImg(index)" v-for="(thumbnail,index) in slides" class="thumb" :class="thumbnail == slides[mainIndex] ? 'active' : '' ">
+                    <div @click="activeImg(index)" v-for="(thumbnail,index) in slides"  @mouseover="stopSlide(true)" @mouseleave="stopSlide(false)"  class="thumb" :class="thumbnail == slides[mainIndex] ? 'active' : '' ">
                         <img :src="thumbnail.image" alt=""/>
                     </div>
                 </div>
