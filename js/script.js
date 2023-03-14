@@ -36,6 +36,7 @@ const { createApp } = Vue
       },
 
       methods : {
+        
         nextImg() {
             if(this.mainIndex >= this.slides.length - 1)
             {
@@ -53,7 +54,8 @@ const { createApp } = Vue
             } else {
                 this.mainIndex--;
             }
-        }
+        },
+        
     }
 
 
