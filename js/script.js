@@ -30,6 +30,7 @@ const { createApp } = Vue
             ],
 
         mainIndex : 0,
+        timer: null,
 
         }
  
@@ -61,25 +62,37 @@ const { createApp } = Vue
         },
 
         stopSlide(hover) {
-            if (hover) {
-                clearInterval(this.timer);
-            } else {
-                this.timer = setInterval()
+            if (!hover) {
+                this.startSlide(false);
+            }else {
+                clearInterval(this.timer);            
+            }
+        },
+
+        startSlide(hover) {
+            if(!hover){
+                this.timer = setInterval(() => {
+                    if( this.mainIndex >= this.slides.length - 1) {
+                       this.mainIndex = 0;
+                    } else {
+                       this.mainIndex++;
+                    }
+                            
+                }, 3000);
             }
         }
-        
     },
 
+
+
     mounted() {
-        setInterval(() => {
-          if( this.mainIndex >= this.slides.length - 1) {
-            this.mainIndex = 0;
-          } else {
-            this.mainIndex++;
-          }
-          
+        this.timer = setInterval(() => {
+            if( this.mainIndex >= this.slides.length - 1) {
+               this.mainIndex = 0;
+            } else {
+               this.mainIndex++;
+            }
+                    
         }, 3000);
-      },
-
-
+    }
   }).mount('#app')
