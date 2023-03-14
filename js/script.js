@@ -54,14 +54,20 @@ const { createApp } = Vue
             } else {
                 this.mainIndex--;
             }
-        },
-
-
-        activeImg(index) {
-            this.mainIndex = index;
         }
         
-    }
+    },
+
+    mounted() {
+        setInterval(() => {
+          if( this.mainIndex >= this.slides.length - 1) {
+            this.mainIndex = 0;
+          } else {
+            this.mainIndex++;
+          }
+          
+        }, 3000);
+      },
 
 
   }).mount('#app')
