@@ -55,6 +55,11 @@ const { createApp } = Vue
                 this.mainIndex--;
             }
         },
+
+
+        activeImg(index) {
+            this.mainIndex = index;
+        }
         
     }
 
